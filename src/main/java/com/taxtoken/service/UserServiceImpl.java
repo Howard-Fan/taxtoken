@@ -5,6 +5,9 @@ import com.taxtoken.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class UserServiceImpl implements UserService {
 
@@ -24,5 +27,13 @@ public class UserServiceImpl implements UserService {
         oldUser.setBirthday(user.getBirthday());
         oldUser.setAge(user.getAge());
         return userRepository.save(oldUser);
+    }
+
+    public List<User> getAllUser() {
+        List<User> list = new ArrayList<>();
+        for(User user: userRepository.findAll()) {
+            list.add(user);
+        }
+        return list;
     }
 }
