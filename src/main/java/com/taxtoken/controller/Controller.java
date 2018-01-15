@@ -29,15 +29,14 @@ public class Controller {
     @RequestMapping(method = RequestMethod.POST, path = "/user")
     @ResponseBody
     public User createUser(@RequestBody User user) {
-        userService.createUser(user);
-        return user;
+        return userService.createUser(user);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/user/{name}")
     @ResponseBody
-    public User updateUser(@PathVariable String name, @RequestParam(name = "birthday", required = true) String birthday, @RequestParam(name = "age", required = true) Integer age) {
-        userService.updateUser(name, birthday, age);
-        return new User(name, birthday, age);
+    public User updateUser(@PathVariable String name, @RequestBody User user) {
+        user.setName(name);
+        return userService.updateUser(user);
     }
 
 
