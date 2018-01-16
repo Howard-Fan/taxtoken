@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Person List</title>
+</head>
+<body>
+<h1>Person List</h1>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each ="user : ${users}">
+            <td th:utext="${user.name}">...</td>
+            <td th:utext="${user.birthday}">...</td>
+            <td th:utext="${user.age}">...</td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
